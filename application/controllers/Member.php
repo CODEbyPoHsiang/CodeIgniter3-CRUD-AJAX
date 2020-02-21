@@ -69,8 +69,9 @@ class Member extends CI_Controller {
             'address' => $this->input->post('address'),
             'notes' => $this->input->post('notes'),
         );
+        
 		$this->Member_model->update(array('id' => $this->input->post('id')), $data);
-		echo json_encode(array("status" => TRUE));
+		echo json_encode($data);
     }
     public function delete($id)
 	{
