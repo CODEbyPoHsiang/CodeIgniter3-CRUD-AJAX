@@ -20,25 +20,23 @@ http://localhost/ci3crud/   \\(本機網址/專案資料夾名稱/)
 http://localhost/ci3crud/Member   \\(本機網址/專案資料夾名稱/crud控制器名稱)
 ```
 ---
-API使用
-
-* 資料顯示API (GET)
+顯示全部資料 API (GET)
 ```
-http://localhost/ci3crud/Member/all
+http://localhost/ci3crud/api
 ```
-* 新增資料API (POST)
+查看單一資料 API (GET)
 ```
-http://localhost/ci3crud/Member/add
+http://localhost/ci3crud/api/{id}
 ```
-* 查看單一筆資料 (GET)
+新增一筆資料 API (POST)
 ```
-http://localhost/ci3crud/Member/ajax_edit/{id}
+http://localhost/ci3crud/api/new
 ```
-* 修改資料 (PUT)
+編輯一筆資料 API (PUT)
 ```
-http://localhost/ci3crud/Member/update/{id}//有問題 等待處理
+http://localhost/ci3crud/api/edit/{id}
 ```
-* 刪除資料 (DELETE)
+刪除一筆資料 API (DELETE)
 ```
-http://localhost/ci3crud/Member/delete/{id} 
+http://localhost/ci3crud/api/delete/{id}
 ```
