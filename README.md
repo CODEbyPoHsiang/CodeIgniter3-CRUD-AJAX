@@ -20,6 +20,10 @@ http://localhost/ci3crud/   \\(本機網址/專案資料夾名稱/)
 http://localhost/ci3crud/Member   \\(本機網址/專案資料夾名稱/crud控制器名稱)
 ```
 ---
+Codiginter API 說明
+---
+利用REST_Controller 套件協助製作api
+
 顯示全部資料 API (GET)
 ```
 http://localhost/ci3crud/api
