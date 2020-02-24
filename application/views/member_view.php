@@ -32,17 +32,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($members as $member){?>
-                        <tr id="member<?php echo $member->id;?>">
-                            <td><?php echo $member->name;?></td>
-                            <td><?php echo $member->phone;?></td>
-                            <td><?php echo $member->email;?></td>
-                            <td><?php echo $member->address;?></td>
+                    <?php foreach($member as $members){?>
+                        <tr id="member<?php echo $members->id;?>">
+                            <td><?php echo $members->name;?></td>
+                            <td><?php echo $members->phone;?></td>
+                            <td><?php echo $members->email;?></td>
+                            <td><?php echo $members->address;?></td>
                             <td>
-                                <button class="btn btn-warning btn-detail open_modal" onclick="edit_member(<?php echo $member->id;?>)" style="border-Radius: 0px;">編輯</button>
+                                <button class="btn btn-warning btn-detail open_modal" onclick="edit_member(<?php echo $members->id;?>)" style="border-Radius: 0px;">編輯</button>
                             </td>
                             <td>
-                                <button class="btn btn-danger btn-delete delete-member" onclick="delete_member(<?php echo $member->id;?>)" style="border-Radius: 0px;">刪除</button>    
+                                <button class="btn btn-danger btn-delete delete-member" onclick="delete_member(<?php echo $members->id;?>)" style="border-Radius: 0px;">刪除</button>    
                             </td>
                         </tr>
                     <?php }?>

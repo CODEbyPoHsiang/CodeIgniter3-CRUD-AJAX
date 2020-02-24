@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //This is the Book Model for CodeIgniter CRUD using Ajax Application.
 class Member_model extends CI_Model
 {
-    var $table = 'members';
+    var $table = 'member';
 
     public function __construct()
 	{
@@ -16,7 +16,7 @@ class Member_model extends CI_Model
     //get all books from database
     public function get_all()
     {
-        $this->db->from('members');
+        $this->db->from('member');
         $query=$this->db->get();
         return $query->result();
     }

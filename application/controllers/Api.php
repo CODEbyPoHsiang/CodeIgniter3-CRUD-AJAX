@@ -22,9 +22,9 @@ class Api extends REST_Controller {
 	public function index_get($id = 0)
 	{
         if(!empty($id)){
-            $data = $this->db->get_where("members", ['id' => $id])->row_array();
+            $data = $this->db->get_where("member", ['id' => $id])->row_array();
         }else{
-            $data = $this->db->get("members")->result();
+            $data = $this->db->get("member")->result();
         }
      
         $this->response($data, REST_Controller::HTTP_OK);
@@ -38,9 +38,9 @@ class Api extends REST_Controller {
     public function index_post()
     {
         $input = $this->input->post();
-        $this->db->insert('members',$input);
+        $this->db->insert('member',$input);
      
-        $this->response(['Item created successfully.'], REST_Controller::HTTP_OK);
+        $this->response(['資料新增成功!'], REST_Controller::HTTP_OK);
     } 
      
     /**
@@ -51,9 +51,9 @@ class Api extends REST_Controller {
     public function index_put($id)
     {
         $input = $this->put();
-        $this->db->update('members', $input, array('id'=>$id));
+        $this->db->update('member', $input, array('id'=>$id));
      
-        $this->response(['Item updated successfully.'], REST_Controller::HTTP_OK);
+        $this->response(['資料修改成功!'], REST_Controller::HTTP_OK);
     }
      
     /**
@@ -63,9 +63,9 @@ class Api extends REST_Controller {
     */
     public function index_delete($id)
     {
-        $this->db->delete('members', array('id'=>$id));
+        $this->db->delete('member', array('id'=>$id));
        
-        $this->response(['Item deleted successfully.'], REST_Controller::HTTP_OK);
+        $this->response(['資料刪除成功!'], REST_Controller::HTTP_OK);
     }
     	
 }

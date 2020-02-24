@@ -28,7 +28,7 @@ class Member extends CI_Controller {
     public function index()
 	{
  
-		$data['members']=$this->Member_model->get_all();
+		$data['member']=$this->Member_model->get_all();
         $this->load->view('member_view',$data);
         // echo json_encode($data);
     }
@@ -45,6 +45,8 @@ class Member extends CI_Controller {
                 'postcode' => $this->input->post('postcode'),
                 'address' => $this->input->post('address'),
                 'notes' => $this->input->post('notes'),
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at'=> date('Y-m-d H:i:s'),
             );
         $insert = $this->Member_model->add($data);
         echo json_encode(array("status" => TRUE));
@@ -68,6 +70,7 @@ class Member extends CI_Controller {
             'postcode' => $this->input->post('postcode'),
             'address' => $this->input->post('address'),
             'notes' => $this->input->post('notes'),
+            'updated_at'=> date('Y-m-d H:i:s'),
         );
         
 		$this->Member_model->update(array('id' => $this->input->post('id')), $data);
