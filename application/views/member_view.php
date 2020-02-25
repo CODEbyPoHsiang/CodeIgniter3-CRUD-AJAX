@@ -6,22 +6,61 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>通訊錄 || PHP - AJAX - Codeigniter</title>
         <!-- Bootstrap CSS -->
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://bootswatch.com/3/darkly/bootstrap.css">
+
+        <!-- 使用sweetalert -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .topnav {
+            overflow: hidden;
+            }
+            label.xrequired:after {
+            content: '*(此欄位為必填) ';
+            color: red;
+            }
+            .topnav-right {
+            float: right;
+            }
+            .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            }
+      </style>
+
+
     </head>
     <body>
+
+        <nav class="navbar navbar-default">
+            <div class="topnav">
+                <a class="active" href="#home">通訊錄</a>
+                <div class="topnav-right">
+                    <a href="#about">Codigniter</a>
+                </div>
+            </div>
+        </nav>
         
         <div class="container">
-            <h3>通訊錄</h3>
-            <br />
             <div class="pull-right">
-                <button  type="button" onclick="add_member()" class="btn btn-primary pull-right" style="border-Radius: 0px;">新增聯絡人</button>
+                <button  type="button" onclick="add_member()" class="btn btn-default pull-right" style="border-Radius: 0px;">新增聯絡人</button>
             </div>          
             <br />
             <br />
             <br />
-            <table class="table table-striped table-hover" id="member_list" name="members-list">
+            <table table class="table table-striped table-hover" id="member_list" name="members-list">
                 <thead>
-                    <tr>
+                    <tr class="info">
                         <!-- <th>Book Id</th> -->
                         <th width="15%">姓名</th>
                         <th width="15%">電話</th>
@@ -47,24 +86,10 @@
                         </tr>
                     <?php }?>
                 </tbody>
-                <!-- <tfoot>
-                    <tr>
-                        <th>Book Id</th>
-                        <th>Book ISBN</th>
-                        <th>Book Title</th>
-                        <th>Book Auther</th>
-                        <th>Book Category</th>
-                        <th>Action</th>
-                    </tr>
-                </tfoot> -->
             </table>
-
         </div>
-
-        
-
                 <!-- Bootstrap modal -->    
-                <div class="modal fade" id="modal_form" role="dialog">
+                <div class="modal fade" id="modal_form" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" style="width:800px">
                 <div class="modal-content" style="border-Radius: 0px;">
                     <div class="modal-header">
@@ -77,7 +102,7 @@
                             <div class="form-body">
                                 <div class="row">
                                         <div class="col-xs-6">
-                                            <label class="text-light">姓名</label>
+                                            <label class="xrequired">姓名</label>
                                             <input name="name" id="name" class="form-control" type="text" style="border-Radius: 0px;" required="required">
                                         </div>
                                         <div class="col-xs-6">
@@ -144,11 +169,11 @@
         <!-- End Bootstrap modal -->
 
         <!-- jQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script> -->
 
         <script type="text/javascript">
             $(document).ready(function(){
@@ -238,7 +263,7 @@
             
             function delete_member(id)
             {
-                if(confirm('Are you sure delete this data?'))
+                if(confirm('確定要刪除此筆聯絡人資料?'))
                 {
                     // ajax delete data from database
                     $.ajax({

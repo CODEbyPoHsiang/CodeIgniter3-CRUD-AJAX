@@ -27,7 +27,11 @@ class Api extends REST_Controller {
             $data = $this->db->get("member")->result();
         }
      
-        $this->response($data, REST_Controller::HTTP_OK);
+        $this->response(["200" => "聯絡人資料載入正常", 'data' => $data], REST_Controller::HTTP_OK);
+
+        if($data == null){
+            $this->response(["404" => "操作錯誤，查無此資料!"], REST_Controller::HTTP_OK);
+        }
 	}
       
     /**
@@ -50,10 +54,10 @@ class Api extends REST_Controller {
     */
     public function index_put($id)
     {
-        $input = $this->put();
-        $this->db->update('member', $input, array('id'=>$id));
-     
-        $this->response(['資料修改成功!'], REST_Controller::HTTP_OK);
+            $input = $this->put();
+            $this->db->update('member', $input, array('id'=>$id));
+            $this->response(['資料修改成功!'], REST_Controller::HTTP_OK);
+       
     }
      
     /**
