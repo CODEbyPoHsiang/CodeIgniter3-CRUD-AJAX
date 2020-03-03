@@ -76,7 +76,7 @@
                             <td><?php echo $members->name;?></td>
                             <td><?php echo $members->phone;?></td>
                             <td><?php echo $members->email;?></td>
-                            <td><?php echo $members->address;?></td>
+                            <td><?php echo $members->city;?><?php echo $members->postcode;?><?php echo $members->address;?></td>
                             <td>
                                 <button class="btn btn-warning btn-detail open_modal" onclick="edit_member(<?php echo $members->id;?>)" style="border-Radius: 0px;">編輯</button>
                             </td>
