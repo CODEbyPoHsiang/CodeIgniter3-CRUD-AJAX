@@ -26,11 +26,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 #$config['base_url'] = 'http://localhost/CodeIgniter3-CRUD-AJAX/';
 
 // 允許多筆通過的網域
-$allowed_domains = ['localhost', 'codeigniter.crud.nctu.me/'];
+$allowed_domains = ['localhost', 'codeignitergcp.crud.nctu.me/'];
 //codeigniter.crud.nctu.me/ 是自訂的網域名
 
 // 當偵測到非上述的例外狀況，會被導向到的網域
-$default_domain  = 'codeigniter.crud.nctu.me/';
+$default_domain  = 'codeignitergcp.crud.nctu.me/';
 
 if (in_array($_SERVER['HTTP_HOST'], $allowed_domains, TRUE))
 {
