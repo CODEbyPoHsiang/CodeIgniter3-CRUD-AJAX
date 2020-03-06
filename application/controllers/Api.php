@@ -22,15 +22,15 @@ class Api extends REST_Controller {
 	public function index_get($id = 0)
 	{
         if(!empty($id)){
-            $data = $this->db->get_where("member", ['id' => $id])->row_array();
+            $data = $this->db->get_where("member", ['id' => $id])->row_array();//如果是鍵入id會顯示一列聯絡人資料
         }else{
-            $data = $this->db->get("member")->result();
+            $data = $this->db->get("member")->result(); //否則是顯示全部聯絡人資料
         }
      
-        $this->response(["200" => "聯絡人資料載入正常", 'data' => $data], REST_Controller::HTTP_OK);
+        $this->response(["200" => "資料載入成功!",'data' => $data], REST_Controller::HTTP_OK);
 
         if($data == null){
-            $this->response(["404" => "操作錯誤，查無此資料!"], REST_Controller::HTTP_OK);
+            $this->response(["404" => "無任何資料!"], REST_Controller::HTTP_OK);
         }
 	}
       
@@ -44,8 +44,9 @@ class Api extends REST_Controller {
         $input = $this->input->post();
         $this->db->insert('member',$input);
      
-        $this->response(['資料新增成功!'], REST_Controller::HTTP_OK);
-    } 
+        $this->response(["200" => "資料新增成功!"], REST_Controller::HTTP_OK);
+        
+    }
      
     /**
      * Get All Data from this method.
@@ -56,7 +57,7 @@ class Api extends REST_Controller {
     {
             $input = $this->put();
             $this->db->update('member', $input, array('id'=>$id));
-            $this->response(['資料修改成功!'], REST_Controller::HTTP_OK);
+            $this->response(["200"=>"資料修改成功!"], REST_Controller::HTTP_OK);
        
     }
      
@@ -67,9 +68,10 @@ class Api extends REST_Controller {
     */
     public function index_delete($id)
     {
+        
         $this->db->delete('member', array('id'=>$id));
        
-        $this->response(['資料刪除成功!'], REST_Controller::HTTP_OK);
+        $this->response(["200"=>"資料刪除成功!"], REST_Controller::HTTP_OK);
     }
     	
 }
