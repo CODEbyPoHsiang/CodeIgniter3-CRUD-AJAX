@@ -48,7 +48,7 @@ class Member extends CI_Controller {
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at'=> date('Y-m-d H:i:s'),
             );
-        $insert = $this->Member_model->add($data);
+        $insert = $this->Member_model->insert($data);
         echo json_encode(array("status" => TRUE));
     }
     public function ajax_edit($id)

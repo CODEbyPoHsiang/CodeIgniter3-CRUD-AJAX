@@ -30,7 +30,7 @@ class Member_model extends CI_Model
         return $query->row();
     }
     //To insert a book a into the database
-    public function add($data)
+    public function insert($data)
     {
         $this->db->insert($this->table, $data);
         return $this->db->insert_id();

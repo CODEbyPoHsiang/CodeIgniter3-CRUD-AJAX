@@ -57,6 +57,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 $route['api/new/'] = 'api/index_post/';  //新增的api路由 (POST)
+
 $route['api/edit/(:num)'] = 'api/$1';  //編輯的api路由 (PUT)
 $route['api/delete/(:num)'] = 'api/$1';  //刪除的api路由 (Delete)
 
